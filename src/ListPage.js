@@ -2,7 +2,6 @@ import React from 'react'
 import './App.css';
 import request from 'superagent';
 import FemaleList from './FemaleList';
-import Dropdown from './Dropdown';
 
 export default class App extends React.Component {
     state = {
@@ -38,8 +37,6 @@ export default class App extends React.Component {
     
         return (
             <div className="user-input">
-                <Dropdown
-                    onDropDown={this.onDropDown}/>
                 <FemaleList
                     femalesProp={this.state.femalesData}
                     evilProp={this.state.evil}
