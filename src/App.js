@@ -8,7 +8,7 @@ import {
 import Header from './Header';
 import ListPage from './ListPage';
 import CreatePage from './CreatePage';
-import UpdatePage from './UpdatePage';
+import DetailPage from './DetailPage';
 
 export default class App extends Component {
     render() {
@@ -29,9 +29,9 @@ export default class App extends Component {
                     />
                     </Switch>
                     <Route 
-                        path="/update/:id" 
+                        path="/detail/:id" 
                         exact
-                        render={(routerProps) => <UpdatePage {...routerProps} />} 
+                        render={(routerProps) => <DetailPage {...routerProps} />} 
                     />
                     </Switch>
                 </Router>

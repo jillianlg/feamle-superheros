@@ -24,7 +24,7 @@ export default class App extends React.Component {
 
 
     searchFemales = async () => {
-        const response = await request.get(`https://dry-badlands-56059.herokuapp.com/females`)
+        // const response = await request.get(`https://dry-badlands-56059.herokuapp.com/females`)
 
         this.setState({
             femalesData: response.body,
