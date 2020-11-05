@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import Header from './Header';
 import ListPage from './ListPage';
+import CreatePage from './CreatePage';
 
 export default class App extends Component {
     render() {
@@ -19,6 +20,11 @@ export default class App extends Component {
                         path="/" 
                         exact
                         render={(routerProps) => <ListPage {...routerProps} />} 
+                    />
+                    <Route 
+                        path="/create" 
+                        exact
+                        render={(routerProps) => <CreatePage {...routerProps} />} 
                     />
                     </Switch>
                 </Router>

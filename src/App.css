@@ -15,7 +15,7 @@ body {
   align-items: center;
   margin: 0 auto;
   font-weight: 400;
-  font-size: 60px;
+  font-size: 50px;
 }
 
 .hero-img {
@@ -48,10 +48,39 @@ body {
   padding: 5px;
 }
 
-.female-group {
+.create-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 15px;
+  height: auto;
+  width: 500px;
+  background-color: black;
+  color: whitesmoke;
+  margin: 5px;
+  padding: 15px;
+}
+
+.female-group, .create-form, button, input {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+}
+
+input {
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.form-q {
+  margin-top: 15px;
+  font-style: italic;
+}
+
+.create-form-heading {
+  font-weight: bolder;
+  font-size: 20px;
 }
