@@ -37,6 +37,7 @@ export default class CreatePage extends Component {
             owner_id: userFromLocalStorage.userId,
         };
 
+
         const females = await request 
         .post('https://dry-badlands-56059.herokuapp.com/females')
         .send(newFemaleHero);
