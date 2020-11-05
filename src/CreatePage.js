@@ -38,12 +38,11 @@ export default class CreatePage extends Component {
         };
 
 
-        const females = await request 
+        await request 
         .post('https://dry-badlands-56059.herokuapp.com/females')
         .send(newFemaleHero);
 
         this.props.history.push('/')
-        console.log(newFemaleHero);
     }
 
     handleChange = (e) => {
