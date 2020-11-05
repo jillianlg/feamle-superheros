@@ -21,7 +21,6 @@ export default class CreatePage extends Component {
     componentDidMount = async () => {
         const response = await request.get('https://dry-badlands-56059.herokuapp.com/publishers');
 
-        // this.setState({ film: response.body });
         this.setState({ publishers: response.body });
     }
 
