@@ -12,15 +12,15 @@ React and SQL-Database
         DONE add catch(err)
         DONE In list page import fetch.js (ss2)
         DONE remove request import
-###  updateItem
-    refarctor GET request from CreatePage
+###  DONE updateItem
+    DONE refarctor GET request from CreatePage
     import fetch.js (ss3)
-###  refactor history.push 
-    move from CreatePage to fetch.js
+###  DONE refactor history.push 
+    DONE move from CreatePage to fetch.js
     import fetch.js (ss4)
-###  Add deleteItem function
+###  DONE Add deleteItem function
     import from fetch.js 
-### Add updateItem function
+### DONE Add updateItem function
     import from fetch.js 
 ###  add const URL 
     on fetch.js add const URL and replce API with const (ss6) note: remove backslash

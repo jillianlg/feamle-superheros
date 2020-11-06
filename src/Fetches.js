@@ -1,8 +1,10 @@
 import request from 'superagent';
 
+const URL = process.env.REACT_APP_API_URL || 'https://dry-badlands-56059.herokuapp.com/';
+
 export async function fetchFemales() {
     try {
-        const response = await request.get(`https://dry-badlands-56059.herokuapp.com/females`)
+        const response = await request.get(`${URL}/females`)
     
     return response.body;
     } catch(err) {
@@ -13,7 +15,7 @@ export async function fetchFemales() {
 
 export async function fetchFemaleId(femaleId) {
     try {
-        const response = await request.get(`https://dry-badlands-56059.herokuapp.com/females/${femaleId}`);
+        const response = await request.get(`${URL}/females/${femaleId}`);
     
     return response.body;
     } catch(err) {
@@ -22,7 +24,7 @@ export async function fetchFemaleId(femaleId) {
 }
 export async function fetchPublishers() {
     try {
-        const response = await request.get('https://dry-badlands-56059.herokuapp.com/publishers');
+        const response = await request.get(`${URL}/publishers`);
     
     return response.body;
     } catch(err) {
@@ -34,7 +36,7 @@ export async function createFemale(newFemaleHero) {
     try {
         
         await request 
-        .post('https://dry-badlands-56059.herokuapp.com/females')
+        .post(`${URL}/females`)
         .send(newFemaleHero);
 
     return;
@@ -47,7 +49,7 @@ export async function updateFemale(femaleId, newFemaleHero) {
     try {
         
         await request 
-        .put(`https://dry-badlands-56059.herokuapp.com/females/${femaleId}`)
+        .put(`${URL}/females/${femaleId}`)
         .send(newFemaleHero);
 
     return;
@@ -60,7 +62,7 @@ export async function deleteFemale(femaleId) {
     try {
         
         await request 
-        .delete(`https://dry-badlands-56059.herokuapp.com/females/${femaleId}`);
+        .delete(`${URL}/females/${femaleId}`);
 
     return;
     } catch(err) {
