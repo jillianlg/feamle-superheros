@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Dropdown from './Dropdown';
-import { fetchFemales, fetchPublishers, updateFemale } from './Fetches';
+import { deleteFemale, fetchFemaleId, fetchPublishers, updateFemale } from './Fetches';
 
 const userFromLocalStorage = {
     userId: 1
@@ -9,9 +9,9 @@ const userFromLocalStorage = {
 export default class DetailPage extends Component {
     state = {
         name: '',
-        evil_factor: '',
+        evilFactor: '',
         feature_film: false,
-        publisher_id: '',
+        publisherId: '',
         owner_id: '',
         publishers: [],
     }
@@ -19,7 +19,7 @@ export default class DetailPage extends Component {
     // on mount, we fetch the females and the publisher
     componentDidMount = async () => {
         const publishers = await fetchPublishers();
-        const female = await fetchFemales(this.props.match.params.id);
+        const female = await fetchFemaleId(this.props.match.params.id);
         // then put those in state
         const publisherNameAsAString = female.publisher;
 
@@ -30,21 +30,21 @@ export default class DetailPage extends Component {
         this.setState({
             publishers: publishers,
             name: female.name,
-            evilFacture: female.evil_factor,
+            evilFactor: female.evil_factor,
             featureFilm: female.feature_film,
             publisherId: matchingPublisher.id,
-            owner: female.owner_id,
+            owner_id: female.owner_id,
         })
+        
     }
     
-    // when the user submits
-    handleSubmit = async (e) => {
+    // when the user submits and edit
+    handleEdit = async (e) => {
         e.preventDefault();
         // shoot that data off to our endpoint using a post request
         await updateFemale(this.props.match.params.id,
             {
               // build a new female hero using the form data from the users input and their localSotrage token
-                id: this.state.id,
                 name: this.state.name,
                 evil_factor: this.state.evilFactor,
                 feature_film: this.state.featureFilm,
@@ -55,6 +55,24 @@ export default class DetailPage extends Component {
             this.props.history.push('/');
     }
 
+        // when the user deletes a female
+        handleDelete = async (e) => {
+            e.preventDefault();
+            // shoot that data off to our endpoint using a delete request
+            await deleteFemale(this.props.match.params.id,
+                {
+                  // delete the selected female
+                    name: this.state.name,
+                    evil_factor: this.state.evilFactor,
+                    feature_film: this.state.featureFilm,
+                    publisher_id: this.state.publisherId,
+                    owner_id: userFromLocalStorage.userId,
+                });
+                // redirect the user home so they can see the new female hero.
+                this.props.history.push('/');
+        }
+        // Add onClick for delete button
+
     // event handeler for the publisher and film dropdown
     handleChange = (e) => {
         this.setState({ featureFilm: e.target.value });
@@ -62,12 +80,15 @@ export default class DetailPage extends Component {
     }
 
     render() {
+        console.log(this.state);
         return (
             
             <div className="create-form">
-                <h2 className="create-form-heading">Update your favorite female comic book hero:</h2>
-                <form className="form-q" onSubmit={this.handleSubmit}>
-                    <input placeholder="Character Name" onChange={e => this.setState({ name: e.target.value})} type="text" />
+                <h2 className="create-form-heading">Edit or delete a female superhero:</h2>
+                <form className="form-q" onSubmit={this.handleEdit}>
+                <input placeholder="Character Name" 
+                    value={this.state.name}
+                    onChange={e => this.setState({ name: e.target.value})} type="text" />
                     <input 
                     placeholder="Level of evil 1-10?"
                     value={this.state.evilFactor}
@@ -76,8 +97,9 @@ export default class DetailPage extends Component {
                     <Dropdown onFilmDropDown={e => this.setState({ featureFilm: e.target.value})}
                             publishers= {this.state.publishers}
                             onPubDropDown={e => this.setState({ publisherId: e.target.value})}/>
-                    <button>Submit</button>
+                    <button className="edit-btn">Edit</button>
                 </form>
+                    <button className="delete-btn" onClick={this.handleDelete}>Delete</button>
             </div>
         )
     }
