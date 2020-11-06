@@ -17,13 +17,13 @@ React and SQL-Database
     import fetch.js (ss3)
 ###  DONE refactor history.push 
     DONE move from CreatePage to fetch.js
-    import fetch.js (ss4)
+    DONE import fetch.js (ss4)
 ###  DONE Add deleteItem function
-    import from fetch.js 
+    DONE import from fetch.js 
 ### DONE Add updateItem function
-    import from fetch.js 
+    DONE import from fetch.js 
 ###  add const URL 
-    on fetch.js add const URL and replce API with const (ss6) note: remove backslash
+    DONE on fetch.js add const URL and replce API with const (ss6) note: remove backslash
 
 2) Add a Detail/Update page at <items>:id.
     On this page, there should be a form, pre-populated with the item's information.

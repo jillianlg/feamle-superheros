@@ -57,7 +57,7 @@ export default class CreatePage extends Component {
                     <Dropdown onFilmDropDown={e => this.setState({ featureFilm: e.target.value})}
                             publishers= {this.state.publishers}
                             onPubDropDown={e => this.setState({ publisherId: e.target.value})}/>
-                    <button>Submit</button>
+                    <button className="sub-btn">Submit</button>
                 </form>
             </div>
         )

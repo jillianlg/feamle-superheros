@@ -68,7 +68,7 @@ body {
   padding: 15px;
 }
 
-.female-group, .create-form, button, input {
+.female-group, .create-form, input {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -89,4 +89,29 @@ input {
 .create-form-heading {
   font-weight: bolder;
   font-size: 20px;
+}
+
+.sub-btn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.edit-btn, .delete-btn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 15px;
 }
