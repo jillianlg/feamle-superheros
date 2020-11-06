@@ -29,7 +29,6 @@ export default class DetailPage extends Component {
 
         this.setState({
             publishers: publishers,
-            // we need to tie our form state to the initial females fetch
             name: female.name,
             evilFacture: female.evil_factor,
             featureFilm: female.feature_film,
@@ -66,10 +65,14 @@ export default class DetailPage extends Component {
         return (
             
             <div className="create-form">
-                <p className="create-form-heading">Update your favorite female comic book hero:</p>
+                <h2 className="create-form-heading">Update your favorite female comic book hero:</h2>
                 <form className="form-q" onSubmit={this.handleSubmit}>
                     <input placeholder="Character Name" onChange={e => this.setState({ name: e.target.value})} type="text" />
-                    <input placeholder="Level of evil (1-10)"onChange={e => this.setState({ evilFactor: e.target.value})} type="number" />
+                    <input 
+                    placeholder="Level of evil 1-10?"
+                    value={this.state.evilFactor}
+                    onChange={e => this.setState({ evilFactor: e.target.value})} 
+                    type="number" />
                     <Dropdown onFilmDropDown={e => this.setState({ featureFilm: e.target.value})}
                             publishers= {this.state.publishers}
                             onPubDropDown={e => this.setState({ publisherId: e.target.value})}/>

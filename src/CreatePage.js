@@ -20,7 +20,7 @@ export default class CreatePage extends Component {
 
     componentDidMount = async () => {
 
-        
+
         const publishers = await fetchPublishers();
 
         this.setState({ publishers });
@@ -38,7 +38,7 @@ export default class CreatePage extends Component {
             owner_id: userFromLocalStorage.userId,
         });
 
-    // then redirect the user home so they can see the new female hero.
+    // redirect the user home so they can see the new female hero.
         this.props.history.push('/')
     }
 
