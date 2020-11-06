@@ -34,7 +34,6 @@ export default class App extends React.Component {
 
 
     render() {
-        // What am I doing with this? 
         const { females } = this.state;    
         console.log(females);
         return (

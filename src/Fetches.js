@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-const URL = process.env.REACT_APP_API_URL || 'https://dry-badlands-56059.herokuapp.com/';
+const URL = process.env.REACT_APP_API_URL || 'https://dry-badlands-56059.herokuapp.com';
 
 export async function fetchFemales() {
     try {
