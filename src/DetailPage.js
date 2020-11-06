@@ -64,8 +64,9 @@ export default class DetailPage extends Component {
 
     render() {
         return (
+            
             <div className="create-form">
-                <p className="create-form-heading">Add your favorite female comic book hero:</p>
+                <p className="create-form-heading">Update your favorite female comic book hero:</p>
                 <form className="form-q" onSubmit={this.handleSubmit}>
                     <input placeholder="Character Name" onChange={e => this.setState({ name: e.target.value})} type="text" />
                     <input placeholder="Level of evil (1-10)"onChange={e => this.setState({ evilFactor: e.target.value})} type="number" />
