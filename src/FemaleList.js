@@ -22,7 +22,6 @@ export default class FemaleList extends React.Component {
         
                     {
                         this.props.femalesProp.filter((item) => {
-                            // console.log(this.props.onDropDown);
                             if (!this.props.onDropDown) return true;
                             if (item.publisher === this.props.onDropDown) return true;
                             return false;

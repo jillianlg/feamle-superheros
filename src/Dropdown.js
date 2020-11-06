@@ -5,12 +5,6 @@ export default class Dropdown extends React.Component {
     render() {
         return (
             <div className="drop-down">
-                {/* <select onChange={this.props.onPubDropDown}>
-                    <option value="">Publisher</option>
-                    <option value="marvel">Marvel</option>
-                    <option value="dc-comics">DC Comics</option>
-                    <option value="dark-horse">Dark Horse</option>
-                </select> */}
                 <select onChange={this.props.onPubDropDown}>
                     {this.props.publishers.map(publisher =>
                     <option key={publisher.id} value={publisher.id}>

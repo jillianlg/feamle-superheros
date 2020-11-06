@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css';
-import request from 'superagent';
+import { fetchFemales } from './Fetches.js';
 import FemaleList from './FemaleList';
 
 export default class App extends React.Component {
@@ -10,7 +10,7 @@ export default class App extends React.Component {
         evil: '',
         film: true,
         publisher: '',
-        femalesData: [],
+        females: [],
     }
 
     componentDidMount = async () => {
@@ -24,23 +24,25 @@ export default class App extends React.Component {
 
 
     searchFemales = async () => {
-        // const response = await request.get(`https://dry-badlands-56059.herokuapp.com/females`)
+        const females = await fetchFemales()
 
         this.setState({
-            femalesData: response.body,
+            females,
             loading: false
         })
     }
 
 
     render() {
-    
+        // What am I doing with this? 
+        const { females } = this.state;    
+        console.log(females);
         return (
             <div className="user-input">
                 <FemaleList
-                    femalesProp={this.state.femalesData}
+                    femalesProp={this.state.females}
                     evilProp={this.state.evil}
-                    filmProp={this.state.femalesData.feature_film}
+                    filmProp={this.state.females.feature_film}
                     onChange={this.state.publisher} value={this.state.value}/>
             </div>
         )

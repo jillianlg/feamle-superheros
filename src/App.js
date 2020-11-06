@@ -27,7 +27,6 @@ export default class App extends Component {
                         exact
                         render={(routerProps) => <CreatePage {...routerProps} />} 
                     />
-                    </Switch>
                     <Route 
                         path="/detail/:id" 
                         exact

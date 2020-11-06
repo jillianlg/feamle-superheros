@@ -6,12 +6,12 @@ React and SQL-Database
 1) Modular API Fuctions (see add fetches commit): 
     Refactor api calls in a separate utils file. Make functions called makeItem, deleteItem, updateItem, and createItem that take appropriate input and hit your api.
 ### createItem:
-        Add Fetechs.js (ss1)
-        Move request from ListPage
-        import superagent
-        add catch(err)
-        In list page import fetch.js (ss2)
-        remove request import
+        DONE Add Fetechs.js (ss1)
+        DONE Move request from ListPage
+        DONE import superagent
+        DONE add catch(err)
+        DONE In list page import fetch.js (ss2)
+        DONE remove request import
 ###  updateItem
     refarctor GET request from CreatePage
     import fetch.js (ss3)
