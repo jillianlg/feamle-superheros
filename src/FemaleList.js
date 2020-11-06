@@ -1,6 +1,7 @@
 import React from 'react'
 import FemaleItem from './FemaleItem.js';
 import './App.css';
+import { Link } from 'react-router-dom';
 
 export default class FemaleList extends React.Component {
     render() {
@@ -22,7 +23,6 @@ export default class FemaleList extends React.Component {
         
                     {
                         this.props.femalesProp.filter((item) => {
-                            // console.log(this.props.onDropDown);
                             if (!this.props.onDropDown) return true;
                             if (item.publisher === this.props.onDropDown) return true;
                             return false;
@@ -30,13 +30,14 @@ export default class FemaleList extends React.Component {
 
                         .map((females, i) => {
                         return (
+                        <Link to= {`/detail/${females.id}`}>
                         <FemaleItem 
                         key = {i}
                         name={females.name}
                         evil={females.evil_factor} 
                         film={females.feature_film.toString()}
                         publisher={females.publisher}/>
-                        )
+                        </Link>)
                         })
                     }
                     </div>

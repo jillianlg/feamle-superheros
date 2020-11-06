@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import request from 'superagent';
 import Dropdown from './Dropdown';
 import './App.css';
+import { createFemale, fetchPublishers } from './Fetches';
 
 const userFromLocalStorage = {
     userId: 1
@@ -19,29 +19,26 @@ export default class CreatePage extends Component {
     }
 
     componentDidMount = async () => {
-        const response = await request.get('https://dry-badlands-56059.herokuapp.com/publishers');
 
-        // this.setState({ film: response.body });
-        this.setState({ publishers: response.body });
+
+        const publishers = await fetchPublishers();
+
+        this.setState({ publishers });
     }
 
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        const newFemaleHero = {
+        await createFemale ({
             id: this.state.id,
             name: this.state.name,
             evil_factor: this.state.evilFactor,
             feature_film: this.state.featureFilm,
             publisher_id: this.state.publisherId,
             owner_id: userFromLocalStorage.userId,
-        };
+        });
 
-
-        await request 
-        .post('https://dry-badlands-56059.herokuapp.com/females')
-        .send(newFemaleHero);
-
+    // redirect the user home so they can see the new female hero.
         this.props.history.push('/')
     }
 
