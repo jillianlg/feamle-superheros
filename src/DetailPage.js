@@ -19,12 +19,12 @@ export default class DetailPage extends Component {
     // on mount, we fetch the females and the publisher
     componentDidMount = async () => {
         const publishers = await fetchPublishers();
-        const female = await fetchFemales(this.props.match.prams.id);
+        const female = await fetchFemales(this.props.match.params.id);
         // then put those in state
         const publisherNameAsAString = female.publisher;
 
         const matchingPublisher = publishers.find((pubItem) => {
-            return pubItem.publisher === publisherNameAsAString
+            return pubItem.publishers === publisherNameAsAString
         });
 
         this.setState({

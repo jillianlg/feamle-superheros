@@ -7,7 +7,7 @@ export default class Header extends React.Component {
             <section>
                 <div className="header">
                     <h1 className="header-title">Female Superheroes</h1>
-                    <img className='hero-img' src="hero.jpg" alt='femal superheroes' width="900px"/>
+                    <img className='hero-img' src="/hero.jpg" alt='femal superheroes' width="900px"/>
                 </div>
                 <nav>
                     <ul className='nav'>
